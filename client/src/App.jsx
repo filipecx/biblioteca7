@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Container } from 'react-bootstrap'
+import { Home } from '../pages/Home'
 
 
 
 function App() {
-  
 
+ 
   return (
-    <>
-      <h1>Olááá, Marilene</h1>
-    </>
+    <Container className='mb-4'>
+      <Home />
+    </Container>
   )
 }
 
