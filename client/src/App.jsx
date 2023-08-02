@@ -8,7 +8,7 @@ function App() {
 
  
   return (
-    <Container className='mb-4'>
+    <Container>
       <Home />
     </Container>
   )

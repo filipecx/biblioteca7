@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Cartao } from '../components/Cartao'
-import { Row, Container } from 'react-bootstrap'
+import { Row, Container, Col } from 'react-bootstrap'
+import { TituloPaginas } from '../components/TituloPaginas'
 
 
 export function Home() {
@@ -28,18 +29,25 @@ export function Home() {
   
     return(
        
-        <Container className='d-flex justify-content-center'> 
+        <Container >
+            <Row className='my-4'>
+                <Col>
+                    <TituloPaginas texto={'Filmes populares'}  /> 
+                </Col>            
+            </Row>     
             <Row md={2} xs={1} lg={4} className="g-3"> 
                 {
                 filmes.map((filme) => {
                     return(
-                        <Cartao 
-                            nomeFilme={filme.Title}
-                            anoFilme={filme.Year} 
-                            idFilme={filme.imdbID}
-                            tipoFilme={filme.Type}
-                            posterFilme={filme.Poster}
-                            key={filme.imdbID} />
+                        <Col key={filme.imdbID + '0,3'}>
+                            <Cartao 
+                                nomeFilme={filme.Title}
+                                anoFilme={filme.Year} 
+                                idFilme={filme.imdbID}
+                                tipoFilme={filme.Type}
+                                posterFilme={filme.Poster}
+                                key={filme.imdbID} />
+                        </Col>
                     )             
                 })
             }
