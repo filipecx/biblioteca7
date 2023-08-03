@@ -8,9 +8,12 @@ const PORT = 3000
 const homeRoutes = require('./routes/homeRoutes')
 const filmesRoutes = require('./routes/filmesRoutes')
 
+
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(cors())
+
+require('dotenv').config({path: './config/.env'})
 
 app.use('/', homeRoutes)
 app.use('/filmes', filmesRoutes)
