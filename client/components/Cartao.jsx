@@ -23,6 +23,18 @@ export function Cartao({nomeFilme, anoFilme, idFilme, tipoFilme, posterFilme}){
     }, [])
 
     const toggleFavorite = async () => {
+        if(isFavorite){
+            try{
+                setFavorite(!isFavorite)
+                await Axios.delete(`http://localhost:3000/filmes/${idFilme}`, 
+                {
+                    params: {idFilme: idFilme}
+                })
+            }catch(e){
+                console.log(e)
+            }
+            
+        }
         setFavorite(!isFavorite)
         await Axios.post(`http://localhost:3000/filmes/${idFilme}`, idFilme)
         .then(function(response){

@@ -4,5 +4,6 @@ const router = express.Router()
 
 router.get('/', filmesController.getFilmes)
 router.post('/:id', filmesController.favorite)
+router.delete('/:id', filmesController.removeFavorite)
 
 module.exports = router
