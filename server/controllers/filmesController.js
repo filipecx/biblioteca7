@@ -16,5 +16,14 @@ module.exports = {
         }catch(e){
             console.log(e)
         }
+    },
+
+    removeFavorite: async (req, res) => {
+        try{
+            await Filme.findByIdAndDelete({idFilme:req.query.idFilme})
+        }
+        catch(e){
+            console.log(e)
+        }
     }
 }
