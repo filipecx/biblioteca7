@@ -2,6 +2,7 @@ const express = require('express')
 const filmesController = require('../controllers/filmesController')
 const router = express.Router()
 
-router.get('/filmes', filmesController.getFilmes)
+router.get('/', filmesController.getFilmes)
+router.post('/:id', filmesController.favorite)
 
 module.exports = router

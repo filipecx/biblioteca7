@@ -6,4 +6,4 @@ const FilmeSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('biblioteca7', FilmeSchema, 'ids')
+module.exports = mongoose.model('biblioteca7', FilmeSchema, 'idsFilmes')

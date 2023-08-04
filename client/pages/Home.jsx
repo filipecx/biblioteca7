@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Cartao } from '../components/Cartao'
 import { Row, Container, Col } from 'react-bootstrap'
+import { Cartao } from '../components/Cartao'
 import { TituloPaginas } from '../components/TituloPaginas'
-
+import { Sidenav } from '../components/Sidenav'
 
 export function Home() {
 
@@ -30,29 +30,36 @@ export function Home() {
     return(
        
         <Container >
-            <Row className='my-4'>
-                <Col>
-                    <TituloPaginas texto={'Filmes populares'}  /> 
-                </Col>            
-            </Row>     
-            <Row md={2} xs={1} lg={4} className="g-3"> 
-                {
-                filmes.map((filme) => {
-                    return(
-                        <Col key={filme.imdbID + '0,3'}>
-                            <Cartao 
-                                nomeFilme={filme.Title}
-                                anoFilme={filme.Year} 
-                                idFilme={filme.imdbID}
-                                tipoFilme={filme.Type}
-                                posterFilme={filme.Poster}
-                                key={filme.imdbID} />
-                        </Col>
-                    )             
-                })
-            }
+            <Row>
+                <Col lg={3} className='mt-5'>
+                    <Sidenav />
+                </Col>
+                <Col>          
+                    <Row className='my-4'>
+                        <Col>
+                            <TituloPaginas texto={'Filmes populares'}  /> 
+                        </Col>            
+                    </Row>     
+                    <Row md={2} xs={1} lg={3} className="g-2"> 
+                        {
+                        filmes.map((filme) => {
+                            return(
+                                <Col key={filme.imdbID + '0,3'}>
+                                    <Cartao 
+                                        nomeFilme={filme.Title}
+                                        anoFilme={filme.Year} 
+                                        idFilme={filme.imdbID}
+                                        tipoFilme={filme.Type}
+                                        posterFilme={filme.Poster}
+                                        key={filme.imdbID} />
+                                </Col>
+                            )             
+                        })
+                        }
+                    </Row>
+                </Col>
            </Row>          
-           </Container>
+        </Container>
         
     )
 }
