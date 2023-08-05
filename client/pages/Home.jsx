@@ -51,37 +51,30 @@ export function Home() {
   
     return(
        
-        <Container >
-            <Row>
-                <Col lg={3} className='mt-5'>
-                    <Sidenav />
-                </Col>
-                <Col>          
-                    <Row className='my-4'>
-                        <Col>
-                            <TituloPaginas texto={'Filmes populares'}  /> 
-                        </Col>            
-                    </Row>     
-                    <Row md={2} xs={1} lg={3} className="g-2"> 
-                            {
-                            filmes.map((filme) => {
-                                return(
-                                    <Col key={filme.imdbID + '0,3'}>
-                                        <Cartao 
-                                            nomeFilme={filme.Title}
-                                            anoFilme={filme.Year} 
-                                            idFilme={filme.imdbID}
-                                            tipoFilme={filme.Type}
-                                            posterFilme={filme.Poster}
-                                            key={filme.imdbID}
-                                            favoritado={favoritos.includes(filme.imdbID) ? true : false} />
-                                    </Col>
-                                )             
-                            })
-                            }
-                    </Row>
-                </Col>
-           </Row>          
+        <Container >                     
+            <Row className='my-4'>
+                <Col>
+                    <TituloPaginas texto={'Filmes populares'}  /> 
+                </Col>            
+            </Row>     
+            <Row md={2} xs={1} lg={3} className="g-2"> 
+                {
+                    filmes.map((filme) => {
+                        return(
+                            <Col key={filme.imdbID + '0,3'}>
+                                <Cartao 
+                                    nomeFilme={filme.Title}
+                                    anoFilme={filme.Year} 
+                                    idFilme={filme.imdbID}
+                                    tipoFilme={filme.Type}
+                                    posterFilme={filme.Poster}
+                                    key={filme.imdbID}
+                                    favoritado={favoritos.includes(filme.imdbID) ? true : false} />
+                            </Col>
+                        )             
+                    })
+                }
+            </Row>
         </Container>
         
     )
