@@ -7,7 +7,7 @@ import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 
 export function Cartao({nomeFilme, anoFilme, idFilme, tipoFilme, posterFilme, favoritado}){
     
-    const [isFavorite, setFavorite] = useState(favoritado)
+    const [isFavorite, setFavorite] = useState(false)
     const toggleFavorite = async () => {
         if(favoritado){
             try{
@@ -42,7 +42,7 @@ export function Cartao({nomeFilme, anoFilme, idFilme, tipoFilme, posterFilme, fa
                 </Card.Text>
                 <div className='d-flex justify-content-between'>
                     <Button variant="dark">{favoritado ? 'true':'false'}</Button>
-                    <Button variant={'dark'} onClick={toggleFavorite} >{favoritado ? <FontAwesomeIcon icon={faHeart}/>: <FontAwesomeIcon icon={farHeart} />}</Button>
+                    <Button variant={'dark'} onClick={toggleFavorite} >{favoritado || isFavorite ? <FontAwesomeIcon icon={faHeart}/>: <FontAwesomeIcon icon={farHeart} />}</Button>
                 </div>             
             </Card.Body>
         </Card>
